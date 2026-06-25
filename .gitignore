@@ -6,6 +6,7 @@
 *.compiled
 *.bak
 *.dbg
+*.lps
 
 # executables
 *.exe
@@ -15,6 +16,7 @@ pizza
 
 # build dirs
 lib/
+backup/
 src/backup/
 
 # IDE

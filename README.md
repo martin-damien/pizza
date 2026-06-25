@@ -40,7 +40,7 @@ The result is given in **fresh yeast (grams)**.
 
 ## 🖥️ Screenshot
 
-*(optional – you can add a screenshot of your app here)*
+![Screenshot](./assets/screenshot.png)
 
 ---
 
