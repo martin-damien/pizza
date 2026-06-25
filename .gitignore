@@ -1,1 +1,25 @@
+# Lazarus / FPC
+*.o
+*.ppu
+*.a
+*.rst
+*.compiled
+*.bak
+*.dbg
+
+# executables
+*.exe
+*.dll
+*.so
 pizza
+
+# build dirs
+lib/
+src/backup/
+
+# IDE
+*.lps
+
+# Linux / general
+*.log
+.DS_Store

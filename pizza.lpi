@@ -30,15 +30,19 @@
     </RequiredPackages>
     <Units>
       <Unit>
-        <Filename Value="pizza.lpr"/>
+        <Filename Value="src/pizza.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="main.pas"/>
+        <Filename Value="src/main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/yeast.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>

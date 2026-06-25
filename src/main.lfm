@@ -1,31 +1,31 @@
 object MainForm: TMainForm
   Left = 342
-  Height = 661
+  Height = 437
   Top = 250
-  Width = 1060
-  AutoSize = True
+  Width = 786
   BorderStyle = bsSingle
   Caption = 'Pizza'
-  ClientHeight = 661
-  ClientWidth = 1060
-  LCLVersion = '4.4.0.0'
+  ClientHeight = 437
+  ClientWidth = 786
+  LCLVersion = '4.8.0.0'
+  OnActivate = FormActivate
   object LeftPanel: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 10
-    Height = 641
+    Height = 417
     Top = 10
-    Width = 288
+    Width = 286
     Anchors = [akTop, akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Left = 10
     BorderSpacing.Top = 10
     BorderSpacing.Bottom = 10
     BevelOuter = bvNone
-    ClientHeight = 641
-    ClientWidth = 288
+    ClientHeight = 417
+    ClientWidth = 286
     TabOrder = 0
     object DoughGroupBox: TGroupBox
       AnchorSideLeft.Control = LeftPanel
@@ -33,13 +33,13 @@ object MainForm: TMainForm
       AnchorSideRight.Control = LeftPanel
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 84
+      Height = 78
       Top = 0
-      Width = 288
+      Width = 286
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       Caption = 'Pâtons'
-      ClientHeight = 58
+      ClientHeight = 59
       ClientWidth = 282
       Font.Height = -12
       Font.Name = 'Noto Sans'
@@ -51,7 +51,7 @@ object MainForm: TMainForm
         Left = 5
         Height = 17
         Top = 5
-        Width = 106
+        Width = 104
         BorderSpacing.Left = 5
         BorderSpacing.Top = 5
         BorderSpacing.Right = 5
@@ -65,7 +65,7 @@ object MainForm: TMainForm
         Left = 146
         Height = 17
         Top = 5
-        Width = 112
+        Width = 109
         BorderSpacing.Left = 5
         BorderSpacing.Top = 5
         BorderSpacing.Right = 5
@@ -76,7 +76,7 @@ object MainForm: TMainForm
         AnchorSideTop.Control = NumberOfPizzaLabel
         AnchorSideTop.Side = asrBottom
         Left = 5
-        Height = 26
+        Height = 27
         Top = 27
         Width = 136
         BorderSpacing.Left = 5
@@ -92,7 +92,7 @@ object MainForm: TMainForm
         AnchorSideRight.Control = DoughGroupBox
         AnchorSideRight.Side = asrBottom
         Left = 146
-        Height = 26
+        Height = 27
         Top = 27
         Width = 131
         Anchors = [akTop, akLeft, akRight]
@@ -100,7 +100,7 @@ object MainForm: TMainForm
         BorderSpacing.Right = 5
         BorderSpacing.Bottom = 5
         TabOrder = 1
-        Value = 180
+        Value = 200
       end
     end
     object YeastRadioGroup: TRadioGroup
@@ -110,9 +110,9 @@ object MainForm: TMainForm
       AnchorSideRight.Control = LeftPanel
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 78
-      Top = 188
-      Width = 288
+      Height = 60
+      Top = 176
+      Width = 286
       Anchors = [akTop, akLeft, akRight]
       AutoFill = True
       AutoSize = True
@@ -126,7 +126,7 @@ object MainForm: TMainForm
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclTopToBottomThenLeftToRight
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 52
+      ClientHeight = 41
       ClientWidth = 282
       ColumnLayout = clVerticalThenHorizontal
       TabOrder = 0
@@ -136,30 +136,35 @@ object MainForm: TMainForm
         AnchorSideRight.Control = FreshYeastRadioButton
         AnchorSideBottom.Control = YeastRadioGroup
         AnchorSideBottom.Side = asrBottom
-        Left = 6
-        Height = 52
-        Top = 0
-        Width = 135
+        Left = 10
+        Height = 21
+        Top = 10
+        Width = 133
         Anchors = [akTop, akLeft, akBottom]
-        BorderSpacing.Left = 5
-        BorderSpacing.Right = 5
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
         Caption = 'Levure séche active'
         TabOrder = 1
       end
       object FreshYeastRadioButton: TRadioButton
+        AnchorSideLeft.Control = DryYeastRadioButton
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = YeastRadioGroup
         AnchorSideRight.Control = YeastRadioGroup
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = YeastRadioGroup
         AnchorSideBottom.Side = asrBottom
-        Left = 147
-        Height = 52
-        Top = 0
-        Width = 129
+        Left = 153
+        Height = 21
+        Top = 10
+        Width = 119
         Anchors = [akTop, akLeft, akRight, akBottom]
-        BorderSpacing.Left = 5
-        BorderSpacing.Right = 5
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
         Caption = 'Levure fraiche'
         Checked = True
         TabOrder = 0
@@ -173,14 +178,14 @@ object MainForm: TMainForm
       AnchorSideRight.Control = LeftPanel
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 84
-      Top = 94
-      Width = 288
+      Height = 78
+      Top = 88
+      Width = 286
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Top = 10
       Caption = 'Proportions (%)'
-      ClientHeight = 58
+      ClientHeight = 59
       ClientWidth = 282
       TabOrder = 2
       object WaterLabel: TLabel
@@ -214,7 +219,7 @@ object MainForm: TMainForm
         AnchorSideTop.Control = WaterLabel
         AnchorSideTop.Side = asrBottom
         Left = 5
-        Height = 26
+        Height = 27
         Top = 27
         Width = 136
         BorderSpacing.Left = 5
@@ -222,7 +227,7 @@ object MainForm: TMainForm
         BorderSpacing.Right = 5
         BorderSpacing.Bottom = 5
         TabOrder = 0
-        Value = 70
+        Value = 65
       end
       object SaltSpinEdit: TSpinEdit
         AnchorSideLeft.Control = WaterSpinEdit
@@ -231,7 +236,7 @@ object MainForm: TMainForm
         AnchorSideRight.Control = ProportionsGroupBox
         AnchorSideRight.Side = asrBottom
         Left = 146
-        Height = 26
+        Height = 27
         Top = 27
         Width = 131
         Anchors = [akTop, akLeft, akRight]
@@ -239,7 +244,7 @@ object MainForm: TMainForm
         BorderSpacing.Right = 5
         BorderSpacing.Bottom = 5
         TabOrder = 1
-        Value = 4
+        Value = 3
       end
     end
     object FermentationGroupBox: TGroupBox
@@ -249,15 +254,15 @@ object MainForm: TMainForm
       AnchorSideRight.Control = LeftPanel
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 84
-      Top = 276
-      Width = 288
+      Height = 78
+      Top = 246
+      Width = 286
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Top = 10
       BorderSpacing.Bottom = 10
       Caption = 'Fermentation'
-      ClientHeight = 58
+      ClientHeight = 59
       ClientWidth = 282
       TabOrder = 3
       object FermentationDurationLabel: TLabel
@@ -278,7 +283,7 @@ object MainForm: TMainForm
         Left = 146
         Height = 17
         Top = 5
-        Width = 130
+        Width = 129
         BorderSpacing.Left = 5
         BorderSpacing.Top = 5
         BorderSpacing.Right = 5
@@ -291,7 +296,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Control = FermentationGroupBox
         AnchorSideBottom.Side = asrBottom
         Left = 5
-        Height = 26
+        Height = 27
         Top = 27
         Width = 136
         Anchors = [akTop, akLeft, akBottom]
@@ -299,7 +304,7 @@ object MainForm: TMainForm
         BorderSpacing.Top = 5
         BorderSpacing.Bottom = 5
         TabOrder = 0
-        Value = 4
+        Value = 24
       end
       object TemperatureSpinEdit: TSpinEdit
         AnchorSideLeft.Control = FermentationDurationSpinEdit
@@ -309,7 +314,7 @@ object MainForm: TMainForm
         AnchorSideBottom.Control = FermentationGroupBox
         AnchorSideBottom.Side = asrBottom
         Left = 146
-        Height = 26
+        Height = 27
         Top = 27
         Width = 136
         Anchors = [akTop, akLeft, akBottom]
@@ -329,9 +334,9 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = LeftPanel
       AnchorSideBottom.Side = asrBottom
       Left = 0
-      Height = 271
-      Top = 370
-      Width = 288
+      Height = 83
+      Top = 334
+      Width = 286
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Top = 10
       Caption = 'Calculer'
@@ -339,7 +344,7 @@ object MainForm: TMainForm
       OnClick = CalculateButtonClick
     end
   end
-  object GroupBox1: TGroupBox
+  object QuantitiesGroupBox: TGroupBox
     AnchorSideLeft.Control = LeftPanel
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
@@ -347,144 +352,150 @@ object MainForm: TMainForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 308
-    Height = 641
+    Left = 306
+    Height = 417
     Top = 10
-    Width = 742
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    AutoSize = True
+    Width = 470
+    Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 10
     BorderSpacing.Top = 10
     BorderSpacing.Right = 10
     BorderSpacing.Bottom = 10
     Caption = 'Quantités'
-    ClientHeight = 615
-    ClientWidth = 736
+    ClientHeight = 398
+    ClientWidth = 466
     ParentBidiMode = False
     TabOrder = 1
-    object GroupBox2: TGroupBox
-      AnchorSideLeft.Control = GroupBox1
-      AnchorSideTop.Control = GroupBox1
-      Left = 20
-      Height = 78
-      Top = 20
-      Width = 200
-      BorderSpacing.Left = 20
-      BorderSpacing.Top = 20
-      Caption = 'Farine'
-      ClientHeight = 52
-      ClientWidth = 194
+    object Quantities_FloorWater_Panel: TPanel
+      Left = 0
+      Height = 180
+      Top = 0
+      Width = 466
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 180
+      ClientWidth = 466
       TabOrder = 0
-      object FlourResultLabel: TLabel
-        AnchorSideLeft.Control = GroupBox2
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = GroupBox2
-        AnchorSideTop.Side = asrCenter
-        Left = 77
-        Height = 37
-        Top = 8
-        Width = 40
-        Caption = '0 g'
-        Font.Height = -27
-        ParentFont = False
+      object GroupBox2: TGroupBox
+        Left = 20
+        Height = 160
+        Top = 20
+        Width = 200
+        Align = alLeft
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 20
+        Caption = 'Farine'
+        ClientHeight = 141
+        ClientWidth = 196
+        TabOrder = 0
+        object FlourResultLabel: TLabel
+          AnchorSideLeft.Control = GroupBox2
+          AnchorSideLeft.Side = asrCenter
+          AnchorSideTop.Control = GroupBox2
+          AnchorSideTop.Side = asrCenter
+          Left = 79
+          Height = 37
+          Top = 52
+          Width = 39
+          Caption = '0 g'
+          Font.Height = -27
+          ParentFont = False
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 240
+        Height = 160
+        Top = 20
+        Width = 206
+        Align = alClient
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 20
+        BorderSpacing.Right = 20
+        Caption = 'Eau'
+        ClientHeight = 141
+        ClientWidth = 202
+        TabOrder = 1
+        object WaterResultLabel: TLabel
+          AnchorSideLeft.Control = GroupBox3
+          AnchorSideLeft.Side = asrCenter
+          AnchorSideTop.Control = GroupBox3
+          AnchorSideTop.Side = asrCenter
+          Left = 82
+          Height = 37
+          Top = 52
+          Width = 39
+          Caption = '0 g'
+          Font.Height = -27
+          ParentFont = False
+        end
       end
     end
-    object GroupBox3: TGroupBox
-      AnchorSideLeft.Control = GroupBox2
-      AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = GroupBox1
-      AnchorSideRight.Control = GroupBox1
-      AnchorSideRight.Side = asrBottom
-      Left = 240
-      Height = 78
-      Top = 20
-      Width = 476
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 20
-      BorderSpacing.Top = 20
-      BorderSpacing.Right = 20
-      Caption = 'Eau'
-      ClientHeight = 52
-      ClientWidth = 470
+    object Quantities_SaltYeast_Panel: TPanel
+      Left = 0
+      Height = 218
+      Top = 180
+      Width = 466
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 218
+      ClientWidth = 466
       TabOrder = 1
-      object WaterResultLabel: TLabel
-        AnchorSideLeft.Control = GroupBox3
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = GroupBox3
-        AnchorSideTop.Side = asrCenter
-        Left = 215
-        Height = 37
-        Top = 8
-        Width = 40
-        Caption = '0 g'
-        Font.Height = -27
-        ParentFont = False
+      object GroupBox4: TGroupBox
+        Left = 20
+        Height = 178
+        Top = 20
+        Width = 200
+        Align = alLeft
+        Anchors = []
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 20
+        BorderSpacing.Right = 20
+        BorderSpacing.Bottom = 20
+        Caption = 'Sel'
+        ClientHeight = 159
+        ClientWidth = 196
+        TabOrder = 0
+        object SaltResultLabel: TLabel
+          AnchorSideLeft.Control = GroupBox4
+          AnchorSideLeft.Side = asrCenter
+          AnchorSideTop.Control = GroupBox4
+          AnchorSideTop.Side = asrCenter
+          Left = 79
+          Height = 37
+          Top = 61
+          Width = 39
+          Caption = '0 g'
+          Font.Height = -27
+          ParentFont = False
+        end
       end
-    end
-    object GroupBox4: TGroupBox
-      AnchorSideLeft.Control = GroupBox1
-      AnchorSideTop.Control = GroupBox2
-      AnchorSideTop.Side = asrBottom
-      AnchorSideBottom.Control = GroupBox1
-      AnchorSideBottom.Side = asrBottom
-      Left = 20
-      Height = 477
-      Top = 118
-      Width = 200
-      Anchors = [akTop, akLeft, akBottom]
-      BorderSpacing.Left = 20
-      BorderSpacing.Top = 20
-      BorderSpacing.Bottom = 20
-      Caption = 'Sel'
-      ClientHeight = 451
-      ClientWidth = 194
-      TabOrder = 2
-      object SaltResultLabel: TLabel
-        AnchorSideLeft.Control = GroupBox4
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = GroupBox4
-        AnchorSideTop.Side = asrCenter
-        Left = 77
-        Height = 37
-        Top = 207
-        Width = 40
-        Caption = '0 g'
-        Font.Height = -27
-        ParentFont = False
-      end
-    end
-    object GroupBox5: TGroupBox
-      AnchorSideLeft.Control = GroupBox3
-      AnchorSideTop.Control = GroupBox3
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = GroupBox1
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = GroupBox1
-      AnchorSideBottom.Side = asrBottom
-      Left = 240
-      Height = 477
-      Top = 118
-      Width = 476
-      Anchors = [akTop, akLeft, akRight, akBottom]
-      BorderSpacing.Top = 20
-      BorderSpacing.Right = 20
-      BorderSpacing.Bottom = 20
-      Caption = 'Levure'
-      ClientHeight = 451
-      ClientWidth = 470
-      TabOrder = 3
-      object YeastResultLabel: TLabel
-        AnchorSideLeft.Control = GroupBox5
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = GroupBox5
-        AnchorSideTop.Side = asrCenter
-        Left = 215
-        Height = 37
-        Top = 207
-        Width = 40
-        Caption = '0 g'
-        Font.Height = -27
-        ParentFont = False
+      object GroupBox5: TGroupBox
+        Left = 240
+        Height = 178
+        Top = 20
+        Width = 206
+        Align = alClient
+        Anchors = []
+        BorderSpacing.Top = 20
+        BorderSpacing.Right = 20
+        BorderSpacing.Bottom = 20
+        Caption = 'Levure'
+        ClientHeight = 159
+        ClientWidth = 202
+        TabOrder = 1
+        object YeastResultLabel: TLabel
+          AnchorSideLeft.Control = GroupBox5
+          AnchorSideLeft.Side = asrCenter
+          AnchorSideTop.Control = GroupBox5
+          AnchorSideTop.Side = asrCenter
+          Left = 82
+          Height = 37
+          Top = 61
+          Width = 39
+          Caption = '0 g'
+          Font.Height = -27
+          ParentFont = False
+        end
       end
     end
   end
