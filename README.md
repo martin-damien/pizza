@@ -1,4 +1,7 @@
-# 🍕 Pizza Dough Calculator
+<div style="text-align: center">
+![Screenshot](./assets/icon.png)
+# Pizza Dough Calculator
+</div>
 
 A simple desktop application to calculate pizza dough ingredients, built with Lazarus (FreePascal).
 

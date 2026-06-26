@@ -1,23 +1,23 @@
 {
-  Pizza Dough Calculator - Main Form
+    Pizza Dough Calculator - Main Form
 
-  This file contains an implementation inspired by the RafCalc project
-  (https://github.com/ - if you have exact repo, you can add it here)
+    This file contains an implementation inspired by the RafCalc project
+    (https://github.com/ - if you have exact repo, you can add it here)
 
-  Copyright (C) 2026 Damien MARTIN
+    Copyright (C) 2026 Damien MARTIN
 
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program. If not, see <https://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <https://www.gnu.org/licenses/>.
 }
 
 unit main;
@@ -28,116 +28,113 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Spin, Menus, Buttons, Yeast;
+  Spin, Menus, Buttons, Yeast, about;
 
 type
 
-  { TMainForm }
+    { TMainForm }
 
-  TYeast = (Fresh, DryActive);
+    TMainForm = class(TForm)
+        CalculateButton: TBitBtn;
+        DoughGroupBox: TGroupBox;
+        MainMenu1: TMainMenu;
+        MenuItem1: TMenuItem;
+        AboutMenuItem: TMenuItem;
+        QuantitiesGroupBox: TGroupBox;
+        GroupBox2: TGroupBox;
+        GroupBox3: TGroupBox;
+        GroupBox4: TGroupBox;
+        GroupBox5: TGroupBox;
+        Quantities_SaltYeast_Panel: TPanel;
+        Quantities_FloorWater_Panel: TPanel;
+        YeastResultLabel: TLabel;
+        FlourResultLabel: TLabel;
+        WaterResultLabel: TLabel;
+        SaltResultLabel: TLabel;
+        LeftPanel: TPanel;
+        ProportionsGroupBox: TGroupBox;
+        FermentationGroupBox: TGroupBox;
+        NumberOfPizzaLabel: TLabel;
+        DoughWeightLabel: TLabel;
+        WaterLabel: TLabel;
+        SaltLabel: TLabel;
+        FermentationDurationLabel: TLabel;
+        TemperatureLabel: TLabel;
+        DryYeastRadioButton: TRadioButton;
+        FreshYeastRadioButton: TRadioButton;
+        NumberOfPizzaSpinEdit: TSpinEdit;
+        DoughWeightSpinEdit: TSpinEdit;
+        WaterSpinEdit: TSpinEdit;
+        SaltSpinEdit: TSpinEdit;
+        FermentationDurationSpinEdit: TSpinEdit;
+        TemperatureSpinEdit: TSpinEdit;
+        YeastRadioGroup: TRadioGroup;
+        procedure AboutMenuItemClick(Sender: TObject);
+        procedure onInputChange(Sender: TObject);
+    private
+        function FormToInput: TInputIngredients;
+        procedure outputToForm(outputIngredients: TOutputIngredients);
+    public
 
-  TMainForm = class(TForm)
-    CalculateButton: TBitBtn;
-    DoughGroupBox: TGroupBox;
-    QuantitiesGroupBox: TGroupBox;
-    GroupBox2: TGroupBox;
-    GroupBox3: TGroupBox;
-    GroupBox4: TGroupBox;
-    GroupBox5: TGroupBox;
-    Quantities_SaltYeast_Panel: TPanel;
-    Quantities_FloorWater_Panel: TPanel;
-    YeastResultLabel: TLabel;
-    FlourResultLabel: TLabel;
-    WaterResultLabel: TLabel;
-    SaltResultLabel: TLabel;
-    LeftPanel: TPanel;
-    ProportionsGroupBox: TGroupBox;
-    FermentationGroupBox: TGroupBox;
-    NumberOfPizzaLabel: TLabel;
-    DoughWeightLabel: TLabel;
-    WaterLabel: TLabel;
-    SaltLabel: TLabel;
-    FermentationDurationLabel: TLabel;
-    TemperatureLabel: TLabel;
-    DryYeastRadioButton: TRadioButton;
-    FreshYeastRadioButton: TRadioButton;
-    NumberOfPizzaSpinEdit: TSpinEdit;
-    DoughWeightSpinEdit: TSpinEdit;
-    WaterSpinEdit: TSpinEdit;
-    SaltSpinEdit: TSpinEdit;
-    FermentationDurationSpinEdit: TSpinEdit;
-    TemperatureSpinEdit: TSpinEdit;
-    YeastRadioGroup: TRadioGroup;
-    procedure CalculateButtonClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
-  private
-    procedure Calculate;
-  public
-
-  end;
+    end;
 
 var
-  MainForm: TMainForm;
+    MainForm: TMainForm;
 
 implementation
 
-{$R *.lfm}
+    {$R *.lfm}
 
-{ TMainForm }
+    { TMainForm }
 
-procedure TMainForm.Calculate;
-var
-  Flour, Water, Salt, Yeast, Hydration, SaltRatio, YeastRatio, YeastPercent, SaltPerLiter: Real;
-  TotalDough, NumberOfPizza, DoughWeight, WaterPercent, SaltPercent, FermentationDuration, RoomTemperature: Integer;
-  yeastType: TYeast;
-begin
-     { Retrieve user data }
+    procedure TMainForm.onInputChange(Sender: TObject);
+    var
+        inputIngredients: TInputIngredients;
+        outputIngredients: TOutputIngredients;
+    begin
+        inputIngredients := FormToInput;
+        outputIngredients := CalculateQuantities(inputIngredients);
+        outputToForm(outputIngredients);
+    end;
 
-    NumberOfPizza := NumberOfPizzaSpinEdit.Value;
-    DoughWeight := DoughWeightSpinEdit.Value;
-    WaterPercent := WaterSpinEdit.Value;
-    SaltPercent := SaltSpinEdit.Value;
-    FermentationDuration := FermentationDurationSpinEdit.Value;
-    RoomTemperature := TemperatureSpinEdit.Value;
+    procedure TMainForm.AboutMenuItemClick(Sender: TObject);
+    var
+        aboutForm: TAboutForm;
+    begin
+        aboutForm := TAboutForm.Create(self);
+        try
+          aboutForm.ShowModal;
+        finally
+          aboutForm.Free;
+        end;
+    end;
 
-    if DryYeastRadioButton.Checked then
-       yeastType := DryActive;
-    if FreshYeastRadioButton.Checked then
-       yeastType := Fresh;
+    function TMainForm.FormToInput: TInputIngredients;
+    var
+        input: TInputIngredients;
+    begin
+        input.dough := NumberOfPizzaSpinEdit.value;
+        input.weight := DoughWeightSpinEdit.Value;
+        input.hydration := WaterSpinEdit.Value;
+        input.salt := SaltSpinEdit.Value;
+        input.fermentationDuration := FermentationDurationSpinEdit.Value;
+        input.fermentationTemperature := TemperatureSpinEdit.Value;
 
-    { Calculate quantities }
+        if DryYeastRadioButton.Checked then
+           input.yeastType := ActiveDryYeast;
+        if FreshYeastRadioButton.Checked then
+           input.yeastType := FreshYeast;
 
-    TotalDough := NumberOfPizza * DoughWeight;
-    Hydration := WaterPercent / 100;
-    SaltRatio := SaltPercent / 100;
+        Result := input;
+    end;
 
-    SaltPerLiter := SaltPercent * 10 * Hydration;
-
-
-
-
-    Flour := TotalDough / ( 1 + Hydration + SaltRatio );
-    Water := Flour * Hydration;
-    Salt := Flour * SaltRatio;
-    Yeast := CalcYeast(Flour, WaterPercent, SaltPerLiter, RoomTemperature, FermentationDuration);
-
-    { Update UI }
-
-    FlourResultLabel.Caption := FormatFloat('0', Flour) + ' g';
-    WaterResultLabel.Caption := FormatFloat('0', Water) + ' g';
-    SaltResultLabel.Caption := FormatFloat('0.0', Salt) + ' g';
-    YeastResultLabel.Caption := FormatFloat('0.00', Yeast) + ' g';
-end;
-
-procedure TMainForm.CalculateButtonClick(Sender: TObject);
-begin
-     Calculate;
-end;
-
-procedure TMainForm.FormActivate(Sender: TObject);
-begin
-     Calculate;
-end;
+    procedure TMainForm.outputToForm(outputIngredients: TOutputIngredients);
+    begin
+        FlourResultLabel.Caption := FormatFloat('0', outputIngredients.flour) + ' g';
+        WaterResultLabel.Caption := FormatFloat('0', outputIngredients.water) + ' g';
+        SaltResultLabel.Caption := FormatFloat('0.0', outputIngredients.salt) + ' g';
+        YeastResultLabel.Caption := FormatFloat('0.00', outputIngredients.yeast) + ' g';
+    end;
 
 end.
 
